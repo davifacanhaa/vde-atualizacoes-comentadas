@@ -1,0 +1,12 @@
+# Sistema
+.DS_Store
+*.log
+
+# Ferramentas locais (preview do Claude Code)
+.claude/
+
+# Dependências (não usamos, mas por segurança)
+node_modules/
+
+# Arquivos de origem da logo (mantidos só localmente)
+versão*.png

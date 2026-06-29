@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VDE Atualizações Comentadas | Pare de estudar conteúdo desatualizado</title>
+<meta name="description" content="Assinatura de atualizações mensais para concursos: mudanças na legislação, jurisprudência e súmulas/informativos que realmente caem na sua prova. Tudo filtrado, sem você garimpar." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg-2: #0e0e16;
+    --bg-3: #12121c;
+    --card: #14141f;
+    --card-2: #191926;
+    --card-hover: #1d1d2c;
+    --border: #25253a;
+    --border-strong: #34344f;
+    --text: #f5f5fb;
+    --text-2: #adadc7;
+    --text-3: #74748f;
+
+    --accent: #8b6df0;
+    --accent-2: #b3a6ee;
+    --accent-deep: #4a3aa0;
+    --accent-dim: rgba(139, 109, 240, 0.13);
+    --accent-glow: rgba(123, 92, 220, 0.28);
+    --grad: linear-gradient(95deg, #3f2f94 0%, #6e54c8 52%, #a99be8 100%);
+    --grad-card: linear-gradient(158deg, #5a3fc0 0%, #7c5fd6 60%, #8d72df 100%);
+
+    --green: #a8dca2;
+    --green-soft: rgba(168, 220, 162, 0.14);
+    --green-text: #1f3a1c;
+    --red: #ff7a7a;
+
+    --radius: 22px;
+    --radius-sm: 14px;
+    --maxw: 1180px;
+    --font: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  ::selection { background: var(--accent); color: #fff; }
+
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  .grad-text {
+    background: linear-gradient(92deg, #9d83f5, #b9adf2);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    font-family: var(--font); font-weight: 600; font-size: 16px;
+    padding: 16px 34px; border-radius: 999px; border: none; cursor: pointer;
+    transition: transform .18s ease, box-shadow .25s ease, filter .2s ease;
+    text-align: center; line-height: 1.2;
+  }
+  .btn svg { width: 18px; height: 18px; }
+  .btn-primary {
+    background: var(--grad); color: #fff;
+    box-shadow: 0 10px 30px var(--accent-glow);
+  }
+  .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 14px 40px var(--accent-glow); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-ghost {
+    background: var(--card-2); color: var(--text); border: 1px solid var(--border-strong); font-weight: 600;
+  }
+  .btn-ghost:hover { background: var(--card-hover); border-color: var(--accent); }
+  .btn-lg { padding: 19px 44px; font-size: 17px; }
+  .btn-block { width: 100%; }
+  .btn-upper { text-transform: uppercase; letter-spacing: .04em; font-weight: 700; }
+
+  /* ---------- Marquee bar ---------- */
+  .marquee {
+    background: linear-gradient(90deg, #2c2270, #3a2d8c);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    overflow: hidden; white-space: nowrap; position: relative; z-index: 60;
+  }
+  .marquee-track { display: inline-flex; align-items: center; gap: 0; animation: scroll 26s linear infinite; }
+  .marquee-track span { display: inline-flex; align-items: center; gap: 14px; padding: 9px 28px; font-size: 12.5px; font-weight: 600; letter-spacing: .07em; color: #e6e0ff; text-transform: uppercase; }
+  .mq-ic { width: 13px; height: 13px; flex-shrink: 0; color: var(--accent-2); }
+  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ---------- Header / floating pill nav ---------- */
+  header { position: sticky; top: 0; z-index: 100; padding: 16px 0; transition: padding .3s ease; }
+  header.scrolled { padding: 10px 0; }
+  .nav-pill {
+    display: flex; align-items: center; justify-content: space-between; gap: 18px;
+    background: rgba(20,20,31,.82); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border); border-radius: 999px; padding: 9px 9px 9px 22px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.4);
+  }
+  .logo { display: flex; align-items: center; gap: 9px; font-weight: 800; font-size: 21px; letter-spacing: -.02em; }
+  .logo .mark { width: 32px; height: 32px; }
+  .logo .mark path { stroke: var(--accent-2); stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .logo .mark .spark { fill: var(--accent-2); stroke: none; }
+  .logo-img { height: 38px; width: auto; display: block; }
+  .hero-logo-img { height: 96px; width: auto; display: block; margin: 0 auto; }
+  .cmp-logo-img { height: 50px; width: auto; display: block; }
+  .logo .badge-lbl { font-size: 10.5px; font-weight: 700; background: var(--accent-dim); color: var(--accent-2); padding: 3px 9px; border-radius: 999px; letter-spacing: .04em; border: 1px solid rgba(139,109,240,.25); }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a { font-size: 14.5px; font-weight: 500; color: var(--text-2); transition: color .2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta { font-size: 14px; padding: 11px 24px; }
+  @media (max-width: 900px){ .nav-links { display: none; } }
+  @media (max-width: 480px){ .logo { font-size: 18px; } .nav-cta { padding: 10px 18px; font-size: 13px; } }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; padding: 70px 0 64px; text-align: center; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; top: -160px; left: 50%; transform: translateX(-50%);
+    width: 820px; height: 520px; max-width: 130vw;
+    background: radial-gradient(ellipse at center, var(--accent-glow), transparent 64%);
+    filter: blur(30px); opacity: .6; pointer-events: none; z-index: 0;
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero-eye {
+    position: absolute; top: 44%; left: 50%; transform: translate(-50%, -50%);
+    width: min(640px, 86vw); height: auto; z-index: 0; pointer-events: none;
+    opacity: .08; user-select: none;
+  }
+  @media (max-width: 640px){ .hero-eye { opacity: .1; width: 112vw; } }
+  .hero-logo { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 30px; font-weight: 800; font-size: 26px; }
+  .hero-logo .mark { width: 46px; height: 46px; }
+  .hero-logo .mark path { stroke: var(--accent-2); stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .hero-logo .mark .spark { fill: var(--accent-2); stroke: none; }
+  .hero-logo .badge-lbl { font-size: 11px; font-weight: 700; background: var(--accent-dim); color: var(--accent-2); padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(139,109,240,.25); }
+  h1 { font-size: clamp(33px, 5.6vw, 58px); line-height: 1.08; letter-spacing: -.03em; font-weight: 800; max-width: 18ch; margin: 0 auto 22px; }
+  .hero-sub { font-size: clamp(16px, 2.2vw, 20px); color: var(--text-2); max-width: 60ch; margin: 0 auto 36px; }
+  .hero-sub strong { color: var(--text); font-weight: 600; }
+  .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .hero-trust { margin-top: 26px; font-size: 14px; color: var(--text-3); display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+  .hero-trust span { display: inline-flex; align-items: center; gap: 8px; }
+  .hero-trust svg { width: 16px; height: 16px; color: var(--accent); }
+
+  /* ---------- Section shells ---------- */
+  .sec { padding: 84px 0; position: relative; }
+  .sec-alt { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .sec-head { text-align: center; max-width: 64ch; margin: 0 auto 56px; }
+  .eyebrow { color: var(--accent-2); font-weight: 600; font-size: 13.5px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
+  h2 { font-size: clamp(27px, 4.2vw, 42px); line-height: 1.14; letter-spacing: -.025em; font-weight: 800; }
+  .sec-head p { color: var(--text-2); font-size: 18px; margin-top: 18px; }
+
+  /* ---------- Comparison table ---------- */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; max-width: 1060px; margin: 0 auto; }
+  .cmp-card { border-radius: 26px; padding: 40px 36px; }
+  .cmp-other { background: var(--card); border: 1px solid var(--border); }
+  .cmp-vde { background: var(--grad-card); box-shadow: 0 24px 70px rgba(74,58,160,.45); }
+  .cmp-title { font-size: 24px; font-weight: 800; letter-spacing: -.02em; padding-bottom: 22px; border-bottom: 1px solid; margin-bottom: 8px; }
+  .cmp-other .cmp-title { color: #e06a6a; border-color: var(--border); }
+  .cmp-vde .cmp-title { color: #fff; border-color: rgba(255,255,255,.22); display: flex; align-items: center; gap: 10px; }
+  .cmp-vde .cmp-title .mark { width: 32px; height: 32px; }
+  .cmp-vde .cmp-title .mark path { stroke: #fff; stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .cmp-vde .cmp-title .mark .spark { fill: #fff; stroke: none; }
+  .cmp-vde .cmp-title .badge-lbl { font-size: 10px; font-weight: 700; background: rgba(255,255,255,.18); color: #fff; padding: 3px 9px; border-radius: 999px; }
+  .cmp-list { list-style: none; display: flex; flex-direction: column; gap: 22px; margin-top: 26px; }
+  .cmp-list li { display: flex; gap: 14px; font-size: 15.5px; align-items: flex-start; line-height: 1.5; }
+  .cmp-other .cmp-list li { color: var(--text-2); }
+  .cmp-vde .cmp-list li { color: #f3f0ff; }
+  .ic-round { flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; margin-top: 1px; }
+  .cmp-other .ic-round { background: rgba(224,106,106,.13); color: #e06a6a; }
+  .cmp-vde .ic-round { background: rgba(255,255,255,.2); color: #fff; }
+  .ic-round svg { width: 13px; height: 13px; }
+  @media (max-width: 820px){ .compare { grid-template-columns: 1fr; } }
+
+  /* ---------- Deliverables ---------- */
+  .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .feat-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 34px 30px; transition: border-color .25s, transform .25s, background .25s;
+  }
+  .feat-card:hover { border-color: var(--accent); transform: translateY(-4px); background: var(--card-hover); }
+  .feat-ic { width: 50px; height: 50px; margin-bottom: 22px; color: var(--accent); }
+  .feat-ic svg { width: 50px; height: 50px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .feat-card h3 { font-size: 20px; margin-bottom: 10px; font-weight: 700; letter-spacing: -.01em; color: var(--accent-2); }
+  .feat-card p { color: var(--text-2); font-size: 15px; }
+  .feat-cta { text-align: center; margin-top: 48px; }
+  @media (max-width: 880px){ .feat-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Manifesto ---------- */
+  .manifesto { text-align: center; }
+  .manifesto h2 { max-width: 22ch; margin: 0 auto 28px; }
+  .manifesto .lead { color: var(--text-2); font-size: 18px; max-width: 64ch; margin: 0 auto 16px; }
+  .manifesto .lead strong { color: var(--text); font-weight: 600; }
+  .manifesto .lead .ac { color: var(--accent-2); font-weight: 600; }
+  .callout {
+    max-width: 880px; margin: 40px auto 0; background: var(--green-soft);
+    border: 1px solid rgba(168,220,162,.4); border-radius: 18px; padding: 26px 30px;
+    color: #c9eec4; font-size: 17px; font-weight: 600; display: flex; gap: 14px; align-items: center; justify-content: center; text-align: center;
+  }
+  .callout svg { width: 26px; height: 26px; flex-shrink: 0; color: #b6e8b0; }
+  .manifesto .m-cta { margin-top: 42px; }
+
+  /* ---------- How it works ---------- */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .step .num {
+    width: 46px; height: 46px; border-radius: 14px; background: var(--grad); color: #fff;
+    font-weight: 800; font-size: 20px; display: grid; place-items: center; margin-bottom: 18px;
+    box-shadow: 0 8px 22px var(--accent-glow);
+  }
+  .step h3 { font-size: 19px; margin-bottom: 8px; font-weight: 700; }
+  .step p { color: var(--text-2); font-size: 15px; }
+  @media (max-width: 800px){ .steps { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* ---------- Pricing ---------- */
+  .plans { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 56px 28px; max-width: 860px; margin: 26px auto 0; align-items: start; }
+  .plan {
+    background: var(--card); border: 1px solid var(--border); border-radius: 26px;
+    padding: 34px 32px; display: flex; flex-direction: column; position: relative;
+  }
+  .plan.featured {
+    border-color: rgba(139,109,240,.55);
+    box-shadow: 0 0 0 1px rgba(139,109,240,.25), 0 26px 70px rgba(0,0,0,.55);
+    background: linear-gradient(180deg, rgba(139,109,240,.07), var(--card) 32%);
+  }
+  .off-badge {
+    position: absolute; top: -18px; left: 50%; transform: translateX(-50%); white-space: nowrap;
+    background: var(--accent-dim); border: 1px solid rgba(139,109,240,.4); color: var(--accent-2);
+    font-size: 13.5px; font-weight: 700; padding: 9px 20px; border-radius: 999px;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .off-badge svg { width: 15px; height: 15px; flex-shrink: 0; }
+  .plan-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
+  .plan-name { font-size: 21px; font-weight: 600; letter-spacing: -.01em; }
+  .plan-name b { font-weight: 800; }
+  .plan.featured .plan-name b { color: var(--accent-2); }
+  .plan-tag { font-size: 12px; font-weight: 700; padding: 7px 13px; border-radius: 10px; letter-spacing: .02em; }
+  .plan.featured .plan-tag { background: var(--accent-deep); color: #fff; }
+  .plan:not(.featured) .plan-tag { background: var(--card-2); color: var(--text-2); border: 1px solid var(--border-strong); }
+  .price-wrap { text-align: center; padding: 26px 0 4px; }
+  .price-old { color: var(--text-3); font-size: 15px; text-decoration: line-through; min-height: 22px; }
+  .price { display: flex; align-items: baseline; gap: 4px; justify-content: center; }
+  .price .lead-x { font-size: 16px; color: var(--text-2); font-weight: 500; margin-right: 4px; align-self: center; }
+  .price .cur { font-size: 24px; font-weight: 700; color: var(--text); }
+  .price .val { font-size: 54px; font-weight: 800; letter-spacing: -.04em; line-height: 1; }
+  .plan.featured .price .val, .plan.featured .price .cur { color: var(--accent-2); }
+  .price .per { font-size: 16px; color: var(--text-3); font-weight: 500; }
+  .price-sub { color: var(--text-2); font-size: 14.5px; margin-top: 10px; min-height: 21px; }
+  .cta-stack { position: relative; margin: 26px 0 8px; }
+  .cta-stack .green-pill {
+    background: var(--green); color: var(--green-text); font-size: 13px; font-weight: 600;
+    text-align: center; padding: 16px 16px 9px; border-radius: 0 0 16px 16px; margin: -10px 14px 0; position: relative; z-index: 1;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  .cta-stack .green-pill svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .cta-stack .btn { position: relative; z-index: 2; }
+  .plan-feats { list-style: none; margin: 18px 0 26px; display: flex; flex-direction: column; gap: 13px; flex: 1; }
+  .plan-feats li { position: relative; padding-left: 18px; font-size: 14.5px; color: var(--text-2); line-height: 1.5; }
+  .plan-feats li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .plan-feats li b { color: var(--text); font-weight: 600; }
+  .plan-divider { height: 1px; background: var(--border); margin: 4px 0 18px; }
+  .plan .btn-saiba { width: 100%; background: var(--card-2); color: var(--accent-2); border: 1px solid var(--border); font-weight: 600; }
+  .plan .btn-saiba:hover { background: var(--card-hover); }
+  @media (max-width: 760px){ .plans { grid-template-columns: 1fr; gap: 46px; } .plan.featured { order: -1; } }
+
+  /* ---------- Guarantee ---------- */
+  .guar-box {
+    display: flex; gap: 28px; align-items: center; max-width: 900px; margin: 0 auto;
+    background: var(--card); border: 1px solid var(--border-strong); border-radius: 24px; padding: 38px;
+  }
+  .guar-seal { flex-shrink: 0; width: 92px; height: 92px; border-radius: 50%; background: var(--accent-dim); border: 2px solid var(--accent); color: var(--accent-2); display: grid; place-items: center; }
+  .guar-seal svg { width: 44px; height: 44px; stroke: var(--accent-2); fill: none; stroke-width: 1.6; }
+  .guar-box h3 { font-size: 23px; margin-bottom: 8px; font-weight: 700; }
+  .guar-box p { color: var(--text-2); font-size: 16px; }
+  @media (max-width: 640px){ .guar-box { flex-direction: column; text-align: center; padding: 30px 24px; } }
+
+  /* ---------- Testimonials ---------- */
+  .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+  .testi { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
+  .stars { color: var(--accent-2); margin-bottom: 14px; display: inline-flex; gap: 3px; }
+  .stars svg { width: 17px; height: 17px; }
+  .testi p { color: var(--text); font-size: 15px; margin-bottom: 18px; }
+  .testi .who { display: flex; align-items: center; gap: 12px; }
+  .avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--grad); display: grid; place-items: center; font-weight: 700; color: #fff; font-size: 15px; }
+  .testi .who b { font-size: 14.5px; display: block; font-weight: 600; }
+  .testi .who small { color: var(--text-3); font-size: 13px; }
+  @media (max-width: 880px){ .testi-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- FAQ ---------- */
+  .faq-list { max-width: 780px; margin: 0 auto; }
+  .faq-item { border: 1px solid var(--border); border-radius: 16px; margin-bottom: 14px; background: var(--card); overflow: hidden; transition: border-color .2s; }
+  .faq-item.open { border-color: var(--accent); }
+  .faq-q {
+    width: 100%; background: none; border: none; cursor: pointer; color: var(--text);
+    font-family: var(--font); font-size: 16.5px; font-weight: 600; text-align: left;
+    padding: 22px 56px 22px 24px; position: relative; display: block; line-height: 1.4;
+  }
+  .faq-q::after { content: "+"; position: absolute; right: 22px; top: 50%; transform: translateY(-50%); font-size: 26px; font-weight: 300; color: var(--accent-2); transition: transform .25s; line-height: 1; }
+  .faq-item.open .faq-q::after { transform: translateY(-50%) rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+  .faq-a p { color: var(--text-2); font-size: 15px; padding: 0 24px 22px; }
+
+  /* ---------- Final CTA ---------- */
+  .final { text-align: center; padding: 100px 0; position: relative; overflow: hidden; }
+  .final::before { content: ""; position: absolute; bottom: -220px; left: 50%; transform: translateX(-50%); width: 860px; height: 520px; max-width: 130vw; background: radial-gradient(ellipse at center, var(--accent-glow), transparent 62%); filter: blur(36px); opacity: .55; pointer-events: none; }
+  .final .wrap { position: relative; z-index: 1; }
+  .final h2 { max-width: 20ch; margin: 0 auto 18px; }
+  .final p { color: var(--text-2); font-size: 19px; max-width: 54ch; margin: 0 auto 36px; }
+
+  /* ---------- Footer ---------- */
+  footer { border-top: 1px solid var(--border); padding: 44px 0; color: var(--text-3); font-size: 14px; }
+  .foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .foot a:hover { color: var(--text); }
+
+  /* ---------- Sticky mobile CTA ---------- */
+  .sticky-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; background: rgba(10,10,15,.94); backdrop-filter: blur(12px); border-top: 1px solid var(--border); padding: 12px 16px; transform: translateY(120%); transition: transform .35s ease; display: none; }
+  .sticky-cta.show { transform: translateY(0); }
+  .sticky-cta .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .sticky-cta .lbl { font-size: 13px; color: var(--text-2); }
+  .sticky-cta .lbl b { color: var(--text); font-size: 16px; display:block; font-weight: 700; }
+  @media (max-width: 760px){ .sticky-cta { display: block; } body { padding-bottom: 78px; } }
+
+  /* ---------- Material preview ---------- */
+  .mat-scroll { display: flex; gap: 26px; overflow-x: auto; padding: 10px 4px 26px; scroll-snap-type: x mandatory; }
+  .mat-scroll::-webkit-scrollbar { height: 8px; }
+  .mat-scroll::-webkit-scrollbar-track { background: var(--bg-3); border-radius: 999px; }
+  .mat-scroll::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 999px; }
+  .mat-item { flex: 0 0 auto; display: flex; flex-direction: column; gap: 12px; scroll-snap-align: center; }
+  .mat-page { width: 330px; position: relative; border-radius: 14px; overflow: hidden; cursor: pointer; background: #fff; border: 1px solid var(--border); box-shadow: 0 18px 44px rgba(0,0,0,.55); transition: transform .25s ease, box-shadow .25s ease; }
+  .mat-page:hover { transform: translateY(-6px); box-shadow: 0 26px 60px rgba(123,92,220,.4); }
+  .mat-page img { width: 100%; display: block; }
+  .mat-page .pg-num { position: absolute; top: 12px; left: 12px; background: var(--grad); color: #fff; font-size: 11.5px; font-weight: 700; padding: 5px 12px; border-radius: 999px; letter-spacing: .03em; box-shadow: 0 4px 12px rgba(0,0,0,.3); }
+  .mat-page .pg-zoom { position: absolute; bottom: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; background: rgba(20,20,31,.9); border: 1px solid var(--border-strong); display: grid; place-items: center; color: #fff; opacity: 0; transform: scale(.85); transition: opacity .2s, transform .2s; }
+  .mat-page .pg-zoom svg { width: 18px; height: 18px; }
+  .mat-page:hover .pg-zoom { opacity: 1; transform: scale(1); }
+  .mat-item figcaption { text-align: center; color: var(--text-2); font-size: 13.5px; font-weight: 500; }
+  .mat-hint { text-align: center; color: var(--text-3); font-size: 13.5px; margin-top: 2px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .mat-hint svg { width: 16px; height: 16px; }
+  .mat-cta { text-align: center; margin-top: 42px; }
+  @media (max-width: 640px){ .mat-page { width: 270px; } }
+
+  /* ---------- Lightbox ---------- */
+  .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(5,5,9,.93); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; padding: 30px; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: min(820px, 94vw); max-height: 92vh; width: auto; border-radius: 10px; box-shadow: 0 30px 90px rgba(0,0,0,.7); }
+  .lightbox .lb-close { position: absolute; top: 18px; right: 22px; width: 46px; height: 46px; border-radius: 50%; background: var(--card-2); border: 1px solid var(--border-strong); color: #fff; display: grid; place-items: center; cursor: pointer; }
+  .lightbox .lb-close svg { width: 22px; height: 22px; }
+  .lightbox .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 54px; height: 54px; border-radius: 50%; background: var(--card-2); border: 1px solid var(--border-strong); color: #fff; display: grid; place-items: center; cursor: pointer; transition: background .2s, transform .2s; z-index: 2; }
+  .lightbox .lb-nav:hover { background: var(--accent-deep); border-color: var(--accent); }
+  .lightbox .lb-nav:active { transform: translateY(-50%) scale(.94); }
+  .lightbox .lb-nav svg { width: 26px; height: 26px; }
+  .lightbox .lb-prev { left: 24px; }
+  .lightbox .lb-next { right: 24px; }
+  .lightbox .lb-counter { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); background: var(--card-2); border: 1px solid var(--border-strong); color: var(--text-2); font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: 999px; }
+  @media (max-width: 640px){ .lightbox .lb-nav { width: 44px; height: 44px; } .lightbox .lb-prev { left: 8px; } .lightbox .lb-next { right: 8px; } .lightbox .lb-nav svg { width: 22px; height: 22px; } }
+
+  /* ---------- Reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce){ .reveal { opacity:1; transform:none; transition:none; } html{scroll-behavior:auto;} .marquee-track{animation:none;} }
+</style>
+</head>
+<body id="top">
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Atualizações mensais para concursos</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Legislação · Jurisprudência · Súmulas</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Oferta válida por tempo limitado</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>A partir de R$ 29,00/mês</span>
+    <span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Atualizações mensais para concursos</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Legislação · Jurisprudência · Súmulas</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Oferta válida por tempo limitado</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>A partir de R$ 29,00/mês</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="wrap">
+    <div class="nav-pill">
+      <a class="logo" href="#top">
+        <img class="logo-img" src="logo-vde.png" alt="VDE Concursos">
+      </a>
+      <nav class="nav-links">
+        <a href="#vantagens">Vantagens</a>
+        <a href="#entregas">O que recebo</a>
+        <a href="#planos">Planos</a>
+        <a href="#faq">Dúvidas</a>
+      </nav>
+      <a href="#planos" class="btn btn-primary nav-cta">Assinar agora</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-eye" src="olho-vde.png" alt="" aria-hidden="true">
+
+  <div class="wrap">
+    <div class="hero-logo">
+      <img class="hero-logo-img" src="logo-vde.png" alt="VDE Concursos">
+    </div>
+    <h1>Todas as atualizações para concursos que você precisa <span class="grad-text">em 1 só lugar.</span></h1>
+    <p class="hero-sub">
+      Toda semana algo muda no mundo dos concursos: uma lei nova, uma decisão do STF, uma súmula.
+      O <strong>VDE Atualizações Comentadas</strong> entrega, todo mês, só o que mudou e o que realmente importa para a sua carreira.
+    </p>
+    <div class="hero-actions">
+      <a href="#planos" class="btn btn-primary btn-lg">Quero me manter atualizado</a>
+      <a href="#entregas" class="btn btn-ghost btn-lg">Ver o que recebo</a>
+    </div>
+    <div class="hero-trust">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Cancele quando quiser</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Garantia de 7 dias</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> A partir de R$ 29,00/mês</span>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="sec sec-alt" id="vantagens">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Por que o <span class="grad-text">VDE Atualizações Comentadas</span> é diferente de se virar sozinho?</h2>
+    </div>
+    <div class="compare">
+      <div class="cmp-card cmp-other reveal">
+        <div class="cmp-title">Por conta própria</div>
+        <ul class="cmp-list">
+          <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span> Você estuda material desatualizado e descobre tarde demais que a lei já mudou.</li>
+          <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span> Perde horas garimpando o que mudou em sites jurídicos e diários oficiais.</li>
+          <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span> Recebe informação solta, sem filtro e sem saber o que importa pra sua carreira.</li>
+          <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span> Só percebe a mudança quando erra a questão, e aí já não dá pra voltar atrás.</li>
+          <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span> Precisa acompanhar vários canais diferentes pra tentar não perder nada.</li>
+        </ul>
+      </div>
+      <div class="cmp-card cmp-vde reveal">
+        <div class="cmp-title"><img class="cmp-logo-img" src="logo-vde.png" alt="VDE Concursos"></div>
+        <ul class="cmp-list">
+          <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Atualizações confiáveis, revisadas e profundas com tudo que mudou no mês.</li>
+          <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Tudo filtrado e mastigado: você recebe pronto, sem garimpar nada.</li>
+          <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Organizado por relevância e por carreira, focado no que cai de verdade.</li>
+          <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Curadoria mensal: você fica sabendo da mudança antes da prova, não depois.</li>
+          <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Legislação, jurisprudência e súmulas num só lugar, por menos de R$ 30/mês.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="sec" id="entregas">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Tudo que mudou, <span class="grad-text">filtrado e mastigado</span> para você</h2>
+      <p>Nada de teoria do zero. A assinatura é o seu radar de atualizações, direto ao ponto e organizado por carreira.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card reveal">
+        <div class="feat-ic"><svg viewBox="0 0 24 24"><path d="m14 13l-8.381 8.38a1 1 0 0 1-3.001-3l8.384-8.381M16 16l6-6m-.5.5l-8-8M8 8l6-6M8.5 7.5l8 8"/></svg></div>
+        <h3>Mudanças na legislação</h3>
+        <p>Leis novas, alterações e revogações destacadas com o "antes e depois" e o impacto direto na sua prova, sem juridiquês desnecessário.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-ic"><svg viewBox="0 0 24 24"><path d="M10 18v-7m1.119-8.795a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949zM14 18v-7m4 7v-7M3 22h18M6 18v-7"/></svg></div>
+        <h3>Jurisprudência atualizada</h3>
+        <p>As decisões recentes do STF e STJ que as bancas mais amam cobrar, explicadas de forma simples e com o que você precisa memorizar.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-ic"><svg viewBox="0 0 24 24"><path d="M12 7v14m4-9h2m-2-4h2M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3zm3-6h2M6 8h2"/></svg></div>
+        <h3>Súmulas e informativos</h3>
+        <p>Informativos comentados e novas súmulas resumidas em linguagem de concurso: o essencial, sem você precisar ler o documento inteiro.</p>
+      </div>
+    </div>
+    <div class="feat-cta reveal">
+      <a href="#planos" class="btn btn-primary btn-lg">Quero receber tudo isso
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7l7 7l-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MATERIAL PREVIEW -->
+<section class="sec" id="amostra">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Amostra real</div>
+      <h2>Veja o material com <span class="grad-text">seus próprios olhos</span></h2>
+      <p>Estas são páginas reais da atualização de Maio/2026, do índice à jurisprudência comentada. Passe o olho e veja o nível de profundidade.</p>
+    </div>
+    <div class="mat-scroll reveal">
+      <figure class="mat-item">
+        <div class="mat-page" data-full="material/pagina-3.png">
+          <span class="pg-num">Pág. 3</span>
+          <img src="material/pagina-3.png" loading="lazy" alt="Página 3 do material (Direito Constitucional)">
+          <span class="pg-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </div>
+        <figcaption>Direito Constitucional</figcaption>
+      </figure>
+      <figure class="mat-item">
+        <div class="mat-page" data-full="material/pagina-16.png">
+          <span class="pg-num">Pág. 16</span>
+          <img src="material/pagina-16.png" loading="lazy" alt="Página 16 do material (Direito Processual Civil)">
+          <span class="pg-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </div>
+        <figcaption>Direito Processual Civil</figcaption>
+      </figure>
+      <figure class="mat-item">
+        <div class="mat-page" data-full="material/pagina-22.png">
+          <span class="pg-num">Pág. 22</span>
+          <img src="material/pagina-22.png" loading="lazy" alt="Página 22 do material (Direito Penal)">
+          <span class="pg-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </div>
+        <figcaption>Direito Penal</figcaption>
+      </figure>
+      <figure class="mat-item">
+        <div class="mat-page" data-full="material/pagina-28.png">
+          <span class="pg-num">Pág. 28</span>
+          <img src="material/pagina-28.png" loading="lazy" alt="Página 28 do material (Processo Penal)">
+          <span class="pg-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </div>
+        <figcaption>Processo Penal</figcaption>
+      </figure>
+      <figure class="mat-item">
+        <div class="mat-page" data-full="material/pagina-42.png">
+          <span class="pg-num">Pág. 42</span>
+          <img src="material/pagina-42.png" loading="lazy" alt="Página 42 do material (Direito Administrativo)">
+          <span class="pg-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </div>
+        <figcaption>Direito Administrativo</figcaption>
+      </figure>
+    </div>
+    <div class="mat-hint">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>
+      Clique em qualquer página para ampliar
+    </div>
+    <div class="mat-cta reveal">
+      <a href="#planos" class="btn btn-primary btn-lg">Quero receber todo mês
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="sec sec-alt">
+  <div class="wrap manifesto">
+    <h2 class="reveal">Estudar conteúdo desatualizado é o <span class="grad-text">erro que mais reprova</span> bom candidato.</h2>
+    <p class="lead reveal">A maioria perde a vaga não por falta de esforço, mas por estudar uma versão vencida da matéria.</p>
+    <p class="lead reveal">Enquanto você revisa um material de meses atrás, a banca já cobrou a redação nova da lei. <span class="ac">É ponto perdido sem nem perceber.</span></p>
+    <div class="callout reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Com o VDE Atualizações Comentadas, você nunca mais entra numa prova sem saber o que mudou.</div>
+    <div class="m-cta reveal"><a href="#planos" class="btn btn-primary btn-lg">Quero entrar no VDE Atualizações Comentadas
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a></div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Como funciona</div>
+      <h2>Simples assim. <span class="grad-text">Você só estuda.</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="num">1</div><h3>Você assina</h3><p>Escolhe o plano mensal ou anual e cria seu acesso em menos de 2 minutos.</p></div>
+      <div class="step reveal"><div class="num">2</div><h3>Recebe a atualização</h3><p>Todo mês liberamos o boletim com tudo que mudou, organizado e pronto para revisar.</p></div>
+      <div class="step reveal"><div class="num">3</div><h3>Estuda no ponto certo</h3><p>Você foca no que realmente cai, entra na prova atualizado e na frente da concorrência.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec sec-alt" id="planos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Planos</div>
+      <h2>Escolha como quer <span class="grad-text">ficar à frente</span></h2>
+    </div>
+
+    <div class="plans">
+      <!-- Mensal -->
+      <div class="plan reveal">
+        <div class="plan-top">
+          <div class="plan-name">Plano <b>Mensal</b></div>
+          <div class="plan-tag">Sem fidelidade</div>
+        </div>
+        <div class="price-wrap">
+          <div class="price-old"></div>
+          <div class="price"><span class="cur">R$</span><span class="val">37,90</span><span class="per">/mês</span></div>
+          <div class="price-sub">Cobrado mensalmente · cancele quando quiser</div>
+        </div>
+        <div class="cta-stack">
+          <a href="#" class="btn btn-ghost btn-block btn-upper" data-checkout="mensal">Assinar o mensal</a>
+        </div>
+        <div class="plan-divider"></div>
+        <ul class="plan-feats">
+          <li>Boletim <b>mensal completo</b> de atualizações</li>
+          <li><b>Mudanças na legislação</b> comentadas</li>
+          <li>Jurisprudência do <b>STF e STJ</b></li>
+          <li><b>Súmulas e informativos</b> resumidos</li>
+          <li>Cancele quando quiser, sem multa</li>
+        </ul>
+        <a href="#faq" class="btn btn-saiba">Saiba mais</a>
+      </div>
+
+      <!-- Anual -->
+      <div class="plan featured reveal">
+        <div class="off-badge"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg> Economize R$ 106,80 · 23% OFF</div>
+        <div class="plan-top">
+          <div class="plan-name">Plano <b>Anual</b></div>
+          <div class="plan-tag">Mais vantajoso</div>
+        </div>
+        <div class="price-wrap">
+          <div class="price-old">De R$ 454,80/ano</div>
+          <div class="price"><span class="cur">R$</span><span class="val">29,00</span><span class="per">/mês</span></div>
+          <div class="price-sub">R$ 348,00 cobrados 1x ao ano</div>
+        </div>
+        <div class="cta-stack">
+          <a href="#" class="btn btn-primary btn-block btn-upper" data-checkout="anual">Assinar o anual</a>
+          <div class="green-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Oferta válida por tempo limitado</div>
+        </div>
+        <div class="plan-divider"></div>
+        <ul class="plan-feats">
+          <li><b>Tudo do plano mensal</b>, com 23% de desconto</li>
+          <li><b>Preço travado</b> por 12 meses</li>
+          <li>Acesso a <b>todas as atualizações</b> do ano</li>
+          <li><b>Prioridade</b> em novidades e materiais extras</li>
+          <li>Garantia de <b>7 dias</b>, risco zero</li>
+        </ul>
+        <a href="#faq" class="btn btn-saiba">Saiba mais</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="guar-box reveal">
+      <div class="guar-seal"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12l2 2l4-4"/></svg></div>
+      <div>
+        <h3>7 dias de garantia incondicional</h3>
+        <p>Assine, receba a primeira atualização e veja o valor por conta própria. Se em até 7 dias você achar que não é pra você, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia. O risco é todo nosso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Quem usa, recomenda</div>
+      <h2>Concurseiros que pararam de <span class="grad-text">estudar no escuro</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi reveal">
+        <div class="stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+        </div>
+        <p>"Caiu uma questão sobre uma lei que mudou há 2 meses. Só acertei porque tinha lido no boletim. Valeu o ano inteiro de assinatura em uma questão."</p>
+        <div class="who"><div class="avatar">MR</div><div><b>Marina R.</b><small>Aprovada · Tribunal</small></div></div>
+      </div>
+      <div class="testi reveal">
+        <div class="stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+        </div>
+        <p>"Eu perdia horas por semana tentando descobrir o que tinha mudado. Agora chega tudo pronto. Sobrou tempo de estudo de verdade."</p>
+        <div class="who"><div class="avatar">JC</div><div><b>João C.</b><small>Concurseiro · Área Fiscal</small></div></div>
+      </div>
+      <div class="testi reveal">
+        <div class="stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+        </div>
+        <p>"O resumo dos informativos é direto ao ponto. Não preciso mais ler documento de 80 páginas. Melhor custo-benefício que já assinei."</p>
+        <div class="who"><div class="avatar">AP</div><div><b>Ana P.</b><small>Concurseira · Carreiras Policiais</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Dúvidas</div>
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q">A assinatura serve para qualquer concurso?</button><div class="faq-a"><p>Sim. As atualizações cobrem as mudanças mais relevantes de legislação, jurisprudência e súmulas que impactam a maioria das carreiras. O conteúdo é organizado para você identificar rapidamente o que importa para a sua área.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Com que frequência recebo as atualizações?</button><div class="faq-a"><p>Todo mês liberamos um boletim completo com tudo que mudou no período. Assinantes do plano anual ainda têm acesso ao histórico de boletins do ano.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Posso cancelar quando quiser?</button><div class="faq-a"><p>Pode, a qualquer momento e sem multa. No plano mensal o acesso continua até o fim do mês pago. No anual você tem 7 dias de garantia para reembolso integral.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Qual a diferença entre o plano mensal e o anual?</button><div class="faq-a"><p>O conteúdo é o mesmo. No anual você paga R$ 29,00/mês (cobrados 1x ao ano), economiza 23% em relação ao mensal de R$ 37,90, trava o preço por 12 meses e ainda tem prioridade em materiais extras.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Preciso ter algum material da VDE para assinar?</button><div class="faq-a"><p>Não. O VDE Atualizações Comentadas é independente e funciona junto com qualquer curso, cursinho ou material que você já use. Ele é o complemento que mantém todo o resto atualizado.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <h2>Enquanto você decide, <span class="grad-text">a lei já mudou de novo.</span></h2>
+    <p>Pare de estudar no escuro. Comece hoje a receber só o que importa por menos de R$ 30 por mês.</p>
+    <a href="#planos" class="btn btn-primary btn-lg">Assinar o VDE Atualizações Comentadas</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="#top">
+      <img class="logo-img" src="logo-vde.png" alt="VDE Concursos" style="height:30px;">
+    </a>
+    <div>© 2026 VDE Atualizações Comentadas · Todos os direitos reservados</div>
+    <div style="display:flex;gap:18px;"><a href="#">Termos</a><a href="#">Privacidade</a><a href="#">Contato</a></div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Página anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+  <img id="lbImg" src="" alt="Página do material ampliada">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Próxima página"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="row">
+    <div class="lbl">Plano Anual · <b>R$ 29,00/mês</b></div>
+    <a href="#planos" class="btn btn-primary" style="padding:12px 26px;font-size:15px;">Assinar</a>
+  </div>
+</div>
+
+<script>
+  const header = document.getElementById('header');
+  const sticky = document.getElementById('stickyCta');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    header.classList.toggle('scrolled', y > 10);
+    sticky.classList.toggle('show', y > 700);
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = null; });
+      if(!open){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+    });
+  });
+
+  // Lightbox for material pages (with prev/next navigation)
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCounter = document.getElementById('lbCounter');
+  const matPages = [...document.querySelectorAll('.mat-page')];
+  const matSrcs = matPages.map(el => el.getAttribute('data-full'));
+  const matLabels = matPages.map(el => { const n = el.querySelector('.pg-num'); return n ? n.textContent.trim() : ''; });
+  let lbIndex = 0;
+  function showLb(i){
+    lbIndex = (i + matSrcs.length) % matSrcs.length;
+    lbImg.src = matSrcs[lbIndex];
+    lbCounter.textContent = matLabels[lbIndex] + ' · ' + (lbIndex + 1) + '/' + matSrcs.length;
+  }
+  function openLb(i){ showLb(i); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeLb(){ lb.classList.remove('open'); document.body.style.overflow=''; lbImg.src=''; }
+  matPages.forEach((el, i) => el.addEventListener('click', () => openLb(i)));
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.getElementById('lbPrev').addEventListener('click', (e) => { e.stopPropagation(); showLb(lbIndex - 1); });
+  document.getElementById('lbNext').addEventListener('click', (e) => { e.stopPropagation(); showLb(lbIndex + 1); });
+  lb.addEventListener('click', (e) => { if(e.target === lb) closeLb(); });
+  document.addEventListener('keydown', (e) => {
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLb();
+    else if(e.key === 'ArrowLeft') showLb(lbIndex - 1);
+    else if(e.key === 'ArrowRight') showLb(lbIndex + 1);
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Checkout placeholders
+  document.querySelectorAll('[data-checkout]').forEach(el => {
+    el.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      const plan = el.getAttribute('data-checkout');
+      alert('Integrar checkout do plano: ' + plan + '\n\n(Substitua pelo link do seu gateway: Hotmart, Kiwify, Stripe, etc.)');
+    });
+  });
+</script>
+</body>
+</html>
