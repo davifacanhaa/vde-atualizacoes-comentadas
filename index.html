@@ -106,13 +106,9 @@
     box-shadow: 0 12px 40px rgba(0,0,0,.4);
   }
   .logo { display: flex; align-items: center; gap: 9px; font-weight: 800; font-size: 21px; letter-spacing: -.02em; }
-  .logo .mark { width: 32px; height: 32px; }
-  .logo .mark path { stroke: var(--accent-2); stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-  .logo .mark .spark { fill: var(--accent-2); stroke: none; }
   .logo-img { height: 38px; width: auto; display: block; }
   .hero-logo-img { height: 96px; width: auto; display: block; margin: 0 auto; }
   .cmp-logo-img { height: 50px; width: auto; display: block; }
-  .logo .badge-lbl { font-size: 10.5px; font-weight: 700; background: var(--accent-dim); color: var(--accent-2); padding: 3px 9px; border-radius: 999px; letter-spacing: .04em; border: 1px solid rgba(139,109,240,.25); }
   .nav-links { display: flex; align-items: center; gap: 26px; }
   .nav-links a { font-size: 14.5px; font-weight: 500; color: var(--text-2); transition: color .2s; }
   .nav-links a:hover { color: var(--text); }
@@ -135,11 +131,7 @@
     opacity: .08; user-select: none;
   }
   @media (max-width: 640px){ .hero-eye { opacity: .1; width: 112vw; } }
-  .hero-logo { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 30px; font-weight: 800; font-size: 26px; }
-  .hero-logo .mark { width: 46px; height: 46px; }
-  .hero-logo .mark path { stroke: var(--accent-2); stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-  .hero-logo .mark .spark { fill: var(--accent-2); stroke: none; }
-  .hero-logo .badge-lbl { font-size: 11px; font-weight: 700; background: var(--accent-dim); color: var(--accent-2); padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(139,109,240,.25); }
+  .hero-logo { display: inline-flex; align-items: center; justify-content: center; margin-bottom: 30px; }
   h1 { font-size: clamp(33px, 5.6vw, 58px); line-height: 1.08; letter-spacing: -.03em; font-weight: 800; max-width: 18ch; margin: 0 auto 22px; }
   .hero-sub { font-size: clamp(16px, 2.2vw, 20px); color: var(--text-2); max-width: 60ch; margin: 0 auto 36px; }
   .hero-sub strong { color: var(--text); font-weight: 600; }
@@ -164,10 +156,6 @@
   .cmp-title { font-size: 24px; font-weight: 800; letter-spacing: -.02em; padding-bottom: 22px; border-bottom: 1px solid; margin-bottom: 8px; }
   .cmp-other .cmp-title { color: #e06a6a; border-color: var(--border); }
   .cmp-vde .cmp-title { color: #fff; border-color: rgba(255,255,255,.22); display: flex; align-items: center; gap: 10px; }
-  .cmp-vde .cmp-title .mark { width: 32px; height: 32px; }
-  .cmp-vde .cmp-title .mark path { stroke: #fff; stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-  .cmp-vde .cmp-title .mark .spark { fill: #fff; stroke: none; }
-  .cmp-vde .cmp-title .badge-lbl { font-size: 10px; font-weight: 700; background: rgba(255,255,255,.18); color: #fff; padding: 3px 9px; border-radius: 999px; }
   .cmp-list { list-style: none; display: flex; flex-direction: column; gap: 22px; margin-top: 26px; }
   .cmp-list li { display: flex; gap: 14px; font-size: 15.5px; align-items: flex-start; line-height: 1.5; }
   .cmp-other .cmp-list li { color: var(--text-2); }
