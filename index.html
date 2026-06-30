@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>VDE Atualizações Comentadas | Pare de estudar conteúdo desatualizado</title>
-<meta name="description" content="Assinatura de atualizações mensais para concursos: mudanças na legislação, jurisprudência e súmulas/informativos que realmente caem na sua prova. Tudo filtrado, sem você garimpar." />
+<meta name="description" content="Assinatura de atualizações mensais para concursos: mudanças na legislação, jurisprudência, informativos e teses de repercussão geral que realmente caem na sua prova. Tudo filtrado, sem você garimpar." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -228,30 +228,34 @@
     box-shadow: 0 0 0 1px rgba(139,109,240,.25), 0 26px 70px rgba(0,0,0,.55);
     background: linear-gradient(180deg, rgba(139,109,240,.07), var(--card) 32%);
   }
-  .off-badge {
-    position: absolute; top: -18px; left: 50%; transform: translateX(-50%); white-space: nowrap;
-    background: var(--accent-dim); border: 1px solid rgba(139,109,240,.4); color: var(--accent-2);
-    font-size: 13.5px; font-weight: 700; padding: 9px 20px; border-radius: 999px;
-    display: inline-flex; align-items: center; gap: 7px;
+  .plan-banner {
+    margin: -34px -32px 26px; padding: 13px 18px; text-align: center;
+    background: var(--grad); color: #fff; font-size: 12.5px; font-weight: 700;
+    letter-spacing: .04em; text-transform: uppercase; border-radius: 25px 25px 0 0;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
   }
-  .off-badge svg { width: 15px; height: 15px; flex-shrink: 0; }
-  .plan-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
-  .plan-name { font-size: 21px; font-weight: 600; letter-spacing: -.01em; }
-  .plan-name b { font-weight: 800; }
-  .plan.featured .plan-name b { color: var(--accent-2); }
-  .plan-tag { font-size: 12px; font-weight: 700; padding: 7px 13px; border-radius: 10px; letter-spacing: .02em; }
-  .plan.featured .plan-tag { background: var(--accent-deep); color: #fff; }
-  .plan:not(.featured) .plan-tag { background: var(--card-2); color: var(--text-2); border: 1px solid var(--border-strong); }
-  .price-wrap { text-align: center; padding: 26px 0 4px; }
+  .plan-banner svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .plan-name { text-align: center; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: .09em; color: var(--text-2); margin-bottom: 22px; }
+  .plan.featured .plan-name { color: var(--accent-2); }
+  .pf-list { list-style: none; margin: 0; display: flex; flex-direction: column; gap: 15px; flex: 1; }
+  .pf-row { display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; line-height: 1.45; color: var(--text); }
+  .pf-ic { flex-shrink: 0; width: 22px; height: 22px; color: var(--accent); margin-top: 1px; }
+  .pf-ic svg { width: 22px; height: 22px; display: block; }
+  .plan:not(.featured) .pf-ic { color: var(--accent-2); }
+  .pf-tx b { font-weight: 700; }
+  .pf-row.off .pf-ic { color: var(--text-3); opacity: .5; }
+  .pf-row.off .pf-tx { color: var(--text-3); text-decoration: line-through; text-decoration-color: rgba(173,173,199,.55); }
+  .pf-row.off .pf-tx b { color: var(--text-3); font-weight: 600; }
+  .plan-divider { height: 1px; background: var(--border); margin: 22px 0; }
+  .price-wrap { text-align: center; padding: 0; }
   .price-old { color: var(--text-3); font-size: 15px; text-decoration: line-through; min-height: 22px; }
   .price { display: flex; align-items: baseline; gap: 4px; justify-content: center; }
-  .price .lead-x { font-size: 16px; color: var(--text-2); font-weight: 500; margin-right: 4px; align-self: center; }
   .price .cur { font-size: 24px; font-weight: 700; color: var(--text); }
-  .price .val { font-size: 54px; font-weight: 800; letter-spacing: -.04em; line-height: 1; }
+  .price .val { font-size: 52px; font-weight: 800; letter-spacing: -.04em; line-height: 1; }
   .plan.featured .price .val, .plan.featured .price .cur { color: var(--accent-2); }
   .price .per { font-size: 16px; color: var(--text-3); font-weight: 500; }
   .price-sub { color: var(--text-2); font-size: 14.5px; margin-top: 10px; min-height: 21px; }
-  .cta-stack { position: relative; margin: 26px 0 8px; }
+  .cta-stack { position: relative; margin: 22px 0 0; }
   .cta-stack .green-pill {
     background: var(--green); color: var(--green-text); font-size: 13px; font-weight: 600;
     text-align: center; padding: 16px 16px 9px; border-radius: 0 0 16px 16px; margin: -10px 14px 0; position: relative; z-index: 1;
@@ -259,14 +263,7 @@
   }
   .cta-stack .green-pill svg { width: 14px; height: 14px; flex-shrink: 0; }
   .cta-stack .btn { position: relative; z-index: 2; }
-  .plan-feats { list-style: none; margin: 18px 0 26px; display: flex; flex-direction: column; gap: 13px; flex: 1; }
-  .plan-feats li { position: relative; padding-left: 18px; font-size: 14.5px; color: var(--text-2); line-height: 1.5; }
-  .plan-feats li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-  .plan-feats li b { color: var(--text); font-weight: 600; }
-  .plan-divider { height: 1px; background: var(--border); margin: 4px 0 18px; }
-  .plan .btn-saiba { width: 100%; background: var(--card-2); color: var(--accent-2); border: 1px solid var(--border); font-weight: 600; }
-  .plan .btn-saiba:hover { background: var(--card-hover); }
-  @media (max-width: 760px){ .plans { grid-template-columns: 1fr; gap: 46px; } .plan.featured { order: -1; } }
+  @media (max-width: 760px){ .plans { grid-template-columns: 1fr; gap: 30px; } .plan.featured { order: -1; } }
 
   /* ---------- Guarantee ---------- */
   .guar-box {
@@ -370,8 +367,8 @@
 <!-- MARQUEE -->
 <div class="marquee">
   <div class="marquee-track">
-    <span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Atualizações mensais para concursos</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Legislação · Jurisprudência · Súmulas</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Oferta válida por tempo limitado</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>A partir de R$ 29,00/mês</span>
-    <span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Atualizações mensais para concursos</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Legislação · Jurisprudência · Súmulas</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Oferta válida por tempo limitado</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>A partir de R$ 29,00/mês</span>
+    <span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Atualizações mensais para concursos</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Legislação · Jurisprudência · Informativos</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Oferta válida por tempo limitado</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>A partir de R$ 29,00/mês</span>
+    <span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Atualizações mensais para concursos</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Legislação · Jurisprudência · Informativos</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>Oferta válida por tempo limitado</span><span><svg class="mq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg>A partir de R$ 29,00/mês</span>
   </div>
 </div>
 
@@ -403,7 +400,7 @@
     </div>
     <h1>Todas as atualizações para concursos que você precisa <span class="grad-text">em 1 só lugar.</span></h1>
     <p class="hero-sub">
-      Toda semana algo muda no mundo dos concursos: uma lei nova, uma decisão do STF, uma súmula.
+      Toda semana algo muda no mundo dos concursos: uma lei nova, uma decisão do STF, uma tese de repercussão geral.
       O <strong>VDE Atualizações Comentadas</strong> entrega, todo mês, só o que mudou e o que realmente importa para a sua carreira.
     </p>
     <div class="hero-actions">
@@ -430,7 +427,6 @@
         <ul class="cmp-list">
           <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span> Você estuda material desatualizado e descobre tarde demais que a lei já mudou.</li>
           <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span> Perde horas garimpando o que mudou em sites jurídicos e diários oficiais.</li>
-          <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span> Recebe informação solta, sem filtro e sem saber o que importa pra sua carreira.</li>
           <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span> Só percebe a mudança quando erra a questão, e aí já não dá pra voltar atrás.</li>
           <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span> Precisa acompanhar vários canais diferentes pra tentar não perder nada.</li>
         </ul>
@@ -440,9 +436,8 @@
         <ul class="cmp-list">
           <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Atualizações confiáveis, revisadas e profundas com tudo que mudou no mês.</li>
           <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Tudo filtrado e mastigado: você recebe pronto, sem garimpar nada.</li>
-          <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Organizado por relevância e por carreira, focado no que cai de verdade.</li>
           <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Curadoria mensal: você fica sabendo da mudança antes da prova, não depois.</li>
-          <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Legislação, jurisprudência e súmulas num só lugar, por menos de R$ 30/mês.</li>
+          <li><span class="ic-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Legislação, jurisprudência e informativos num só lugar, por menos de R$ 30/mês.</li>
         </ul>
       </div>
     </div>
@@ -469,8 +464,8 @@
       </div>
       <div class="feat-card reveal">
         <div class="feat-ic"><svg viewBox="0 0 24 24"><path d="M12 7v14m4-9h2m-2-4h2M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3zm3-6h2M6 8h2"/></svg></div>
-        <h3>Súmulas e informativos</h3>
-        <p>Informativos comentados e novas súmulas resumidas em linguagem de concurso: o essencial, sem você precisar ler o documento inteiro.</p>
+        <h3>Informativos e teses de repercussão geral</h3>
+        <p>Informativos comentados e teses de repercussão geral resumidas em linguagem de concurso: o essencial, sem você precisar ler o documento inteiro.</p>
       </div>
     </div>
     <div class="feat-cta reveal">
@@ -582,10 +577,18 @@
     <div class="plans">
       <!-- Mensal -->
       <div class="plan reveal">
-        <div class="plan-top">
-          <div class="plan-name">Plano <b>Mensal</b></div>
-          <div class="plan-tag">Sem fidelidade</div>
-        </div>
+        <div class="plan-name">Plano Mensal</div>
+        <ul class="pf-list">
+          <li class="pf-row"><span class="pf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4m8-4v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18M9 16l2 2l4-4"/></svg></span><span class="pf-tx">Boletim <b>mensal completo</b> de atualizações</span></li>
+          <li class="pf-row"><span class="pf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14 13l-8.381 8.38a1 1 0 0 1-3.001-3l8.384-8.381M16 16l6-6m-.5.5l-8-8M8 8l6-6M8.5 7.5l8 8"/></svg></span><span class="pf-tx"><b>Mudanças na legislação</b> comentadas</span></li>
+          <li class="pf-row"><span class="pf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 18v-7m1.119-8.795a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949zM14 18v-7m4 7v-7M3 22h18M6 18v-7"/></svg></span><span class="pf-tx">Jurisprudência do <b>STF e STJ</b></span></li>
+          <li class="pf-row"><span class="pf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14m4-9h2m-2-4h2M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3zm3-6h2M6 8h2"/></svg></span><span class="pf-tx"><b>Informativos e teses</b> de repercussão geral</span></li>
+          <li class="pf-row off"><span class="pf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5L5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span><span class="pf-tx">23% de desconto no valor mensal</span></li>
+          <li class="pf-row off"><span class="pf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><span class="pf-tx">Preço travado por 12 meses</span></li>
+          <li class="pf-row off"><span class="pf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8m-10 4h4"/></svg></span><span class="pf-tx">Acesso a todas as atualizações do ano</span></li>
+          <li class="pf-row off"><span class="pf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12l2 2l4-4"/></svg></span><span class="pf-tx">Garantia de 7 dias de reembolso</span></li>
+        </ul>
+        <div class="plan-divider"></div>
         <div class="price-wrap">
           <div class="price-old"></div>
           <div class="price"><span class="cur">R$</span><span class="val">37,90</span><span class="per">/mês</span></div>
@@ -594,24 +597,23 @@
         <div class="cta-stack">
           <a href="#" class="btn btn-ghost btn-block btn-upper" data-checkout="mensal">Assinar o mensal</a>
         </div>
-        <div class="plan-divider"></div>
-        <ul class="plan-feats">
-          <li>Boletim <b>mensal completo</b> de atualizações</li>
-          <li><b>Mudanças na legislação</b> comentadas</li>
-          <li>Jurisprudência do <b>STF e STJ</b></li>
-          <li><b>Súmulas e informativos</b> resumidos</li>
-          <li>Cancele quando quiser, sem multa</li>
-        </ul>
-        <a href="#faq" class="btn btn-saiba">Saiba mais</a>
       </div>
 
       <!-- Anual -->
       <div class="plan featured reveal">
-        <div class="off-badge"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg> Economize R$ 106,80 · 23% OFF</div>
-        <div class="plan-top">
-          <div class="plan-name">Plano <b>Anual</b></div>
-          <div class="plan-tag">Mais vantajoso</div>
-        </div>
+        <div class="plan-banner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></svg> Mais recomendado · Economize R$ 106,80</div>
+        <div class="plan-name">Plano Anual</div>
+        <ul class="pf-list">
+          <li class="pf-row"><span class="pf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4m8-4v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18M9 16l2 2l4-4"/></svg></span><span class="pf-tx">Boletim <b>mensal completo</b> de atualizações</span></li>
+          <li class="pf-row"><span class="pf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14 13l-8.381 8.38a1 1 0 0 1-3.001-3l8.384-8.381M16 16l6-6m-.5.5l-8-8M8 8l6-6M8.5 7.5l8 8"/></svg></span><span class="pf-tx"><b>Mudanças na legislação</b> comentadas</span></li>
+          <li class="pf-row"><span class="pf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 18v-7m1.119-8.795a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949zM14 18v-7m4 7v-7M3 22h18M6 18v-7"/></svg></span><span class="pf-tx">Jurisprudência do <b>STF e STJ</b></span></li>
+          <li class="pf-row"><span class="pf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14m4-9h2m-2-4h2M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3zm3-6h2M6 8h2"/></svg></span><span class="pf-tx"><b>Informativos e teses</b> de repercussão geral</span></li>
+          <li class="pf-row"><span class="pf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5L5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span><span class="pf-tx"><b>23% de desconto</b> no valor mensal</span></li>
+          <li class="pf-row"><span class="pf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><span class="pf-tx"><b>Preço travado</b> por 12 meses</span></li>
+          <li class="pf-row"><span class="pf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8m-10 4h4"/></svg></span><span class="pf-tx">Acesso a <b>todas as atualizações</b> do ano</span></li>
+          <li class="pf-row"><span class="pf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12l2 2l4-4"/></svg></span><span class="pf-tx">Garantia de <b>7 dias</b> de reembolso</span></li>
+        </ul>
+        <div class="plan-divider"></div>
         <div class="price-wrap">
           <div class="price-old">De R$ 454,80/ano</div>
           <div class="price"><span class="cur">R$</span><span class="val">29,00</span><span class="per">/mês</span></div>
@@ -621,15 +623,6 @@
           <a href="#" class="btn btn-primary btn-block btn-upper" data-checkout="anual">Assinar o anual</a>
           <div class="green-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Oferta válida por tempo limitado</div>
         </div>
-        <div class="plan-divider"></div>
-        <ul class="plan-feats">
-          <li><b>Tudo do plano mensal</b>, com 23% de desconto</li>
-          <li><b>Preço travado</b> por 12 meses</li>
-          <li>Acesso a <b>todas as atualizações</b> do ano</li>
-          <li><b>Prioridade</b> em novidades e materiais extras</li>
-          <li>Garantia de <b>7 dias</b>, risco zero</li>
-        </ul>
-        <a href="#faq" class="btn btn-saiba">Saiba mais</a>
       </div>
     </div>
   </div>
@@ -701,7 +694,7 @@
       <h2>Perguntas frequentes</h2>
     </div>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q">A assinatura serve para qualquer concurso?</button><div class="faq-a"><p>Sim. As atualizações cobrem as mudanças mais relevantes de legislação, jurisprudência e súmulas que impactam a maioria das carreiras. O conteúdo é organizado para você identificar rapidamente o que importa para a sua área.</p></div></div>
+      <div class="faq-item"><button class="faq-q">A assinatura serve para qualquer concurso?</button><div class="faq-a"><p>Sim. As atualizações cobrem as mudanças mais relevantes de legislação, jurisprudência, informativos e teses de repercussão geral que impactam a maioria das carreiras. O conteúdo é organizado para você identificar rapidamente o que importa para a sua área.</p></div></div>
       <div class="faq-item"><button class="faq-q">Com que frequência recebo as atualizações?</button><div class="faq-a"><p>Todo mês liberamos um boletim completo com tudo que mudou no período. Assinantes do plano anual ainda têm acesso ao histórico de boletins do ano.</p></div></div>
       <div class="faq-item"><button class="faq-q">Posso cancelar quando quiser?</button><div class="faq-a"><p>Pode, a qualquer momento e sem multa. No plano mensal o acesso continua até o fim do mês pago. No anual você tem 7 dias de garantia para reembolso integral.</p></div></div>
       <div class="faq-item"><button class="faq-q">Qual a diferença entre o plano mensal e o anual?</button><div class="faq-a"><p>O conteúdo é o mesmo. No anual você paga R$ 29,00/mês (cobrados 1x ao ano), economiza 23% em relação ao mensal de R$ 37,90, trava o preço por 12 meses e ainda tem prioridade em materiais extras.</p></div></div>

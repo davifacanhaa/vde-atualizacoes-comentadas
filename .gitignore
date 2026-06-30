@@ -10,3 +10,5 @@ node_modules/
 
 # Arquivos de origem da logo (mantidos só localmente)
 versão*.png
+.vercel
+.env*
