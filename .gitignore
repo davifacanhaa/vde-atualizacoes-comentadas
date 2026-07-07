@@ -1,14 +1,8 @@
-# Sistema
-.DS_Store
+/node_modules
+/.next
+/out
 *.log
-
-# Ferramentas locais (preview do Claude Code)
-.claude/
-
-# Dependências (não usamos, mas por segurança)
-node_modules/
-
-# Arquivos de origem da logo (mantidos só localmente)
-versão*.png
-.vercel
+.DS_Store
 .env*
+.vercel
+next-env.d.ts
